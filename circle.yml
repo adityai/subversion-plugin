@@ -1,0 +1,20 @@
+
+dependencies:
+  pre: 
+   - sudo service docker start; sudo service docker status; sudo docker -v; sudo docker info;
+   
+  post:
+   - sudo docker build -t=subversion_plugin_build . && sudo docker run --name subversion_plugin_build -v ${pwd}:/usr/src/mymaven -d subversion_plugin_build
+   - sudo docker save -o $CIRCLE_ARTIFACTS/subversion_plugin_build.tar subversion_plugin_build
+
+deployment:
+  dockerhub:
+    branch: master
+    commands:
+      - $DOCKER_HUB_TRIGGER
+      
+test:
+  override:
+  - docker ps | grep subversion_plugin_build 
+  - ls -ltr /usr/src/mymaven/target 
+
