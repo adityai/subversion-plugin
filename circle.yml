@@ -5,7 +5,7 @@ dependencies:
    
   post:
    - sudo docker build -t=subversion_plugin_build .
-   - sudo docker run --name subversion_plugin_build -v `pwd`:/usr/src/mymaven -d subversion_plugin_build
+   - sudo docker run --name subversion_plugin_build -v -d subversion_plugin_build
    - sudo docker save -o $CIRCLE_ARTIFACTS/subversion_plugin_build.tar subversion_plugin_build
 
 deployment:
