@@ -16,6 +16,6 @@ deployment:
       
 test:
   override:
-  - docker ps | grep subversion_plugin_build 
-  - ls -ltr /usr/src/mymaven/target 
+  - docker ps 
+  - ls -ltr 
 
