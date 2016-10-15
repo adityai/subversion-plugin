@@ -16,6 +16,6 @@ deployment:
       
 test:
   override:
-  - docker ps 
+  - docker images | grep subversion_plugin_build 
   - ls -ltr 
 
