@@ -7,6 +7,7 @@ dependencies:
    - sudo docker build -t=subversion_plugin_build .
    - sudo docker run --name subversion_plugin_build -d subversion_plugin_build
    - sudo docker save -o $CIRCLE_ARTIFACTS/subversion_plugin_build.tar subversion_plugin_build
+   - cp target/*.hpi $CIRCLE_ARTIFACTS/
 
 deployment:
   dockerhub:
