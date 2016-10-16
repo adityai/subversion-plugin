@@ -10,7 +10,7 @@ dependencies:
    - mvn -q clean install -DskipTests 
    - cd /home/ubuntu/ 
    - ls -ltr subversion-plugin 
-   - cp subversion-plugin/target/subversion-plugin.hpi $CIRCLE_ARTIFACTS/
+   - cp subversion-plugin/target/subversion.hpi $CIRCLE_ARTIFACTS/
 
 deployment:
   dockerhub:
