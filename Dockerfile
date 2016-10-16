@@ -1,6 +1,6 @@
-FROM ubuntu
+FROM maven:3.3-jdk-7
 MAINTAINER adityaii@gmail.com
-RUN apt-get update -y && apt-get install maven openjdk-7-jdk -y && mkdir -p /usr/src/mycode 
+RUN mkdir -p /usr/src/mycode 
 COPY . /usr/src/mycode
 RUN cd /usr/src/mycode && mvn -q clean install -DskipTests && cp target/subversion-plugin.hpi /tmp
  
