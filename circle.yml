@@ -1,13 +1,14 @@
 
 dependencies:
   pre: 
-   - sudo service docker start; sudo service docker status; sudo docker -v; sudo docker info;
+   - sudo service docker start; sudo service docker status; sudo docker -v; sudo docker info; 
    
   post:
    - sudo docker build -t=subversion_plugin_build .
    - sudo docker run --name subversion_plugin_build -v /home/ubuntu:/usr/src/mycode -d subversion_plugin_build
    - sudo docker save -o $CIRCLE_ARTIFACTS/subversion_plugin_build.tar subversion_plugin_build
-   - mvn -q clean install -DskipTests && cp target/subversion-plugin.hpi $CIRCLE_ARTIFACTS/
+   - mvn -q clean install -DskipTests 
+   - cp target/subversion-plugin.hpi $CIRCLE_ARTIFACTS/
 
 deployment:
   dockerhub:
