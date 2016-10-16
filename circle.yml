@@ -8,6 +8,8 @@ dependencies:
    - sudo docker run --name subversion_plugin_build -v /home/ubuntu:/usr/src/mycode -d subversion_plugin_build
    - sudo docker save -o $CIRCLE_ARTIFACTS/subversion_plugin_build.tar subversion_plugin_build
    - mvn -q clean install -DskipTests 
+   - cd /home/ubuntu/ 
+   - ls -ltr subversion-plugin 
    - cp subversion-plugin/target/subversion-plugin.hpi $CIRCLE_ARTIFACTS/
 
 deployment:
